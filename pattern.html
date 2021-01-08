@@ -1,0 +1,68 @@
+<html>
+<head>
+<title>JavaScript Patterns</title>
+	<script type="text/javascript">
+		
+	const n=prompt("Enter your Number");
+	
+	document.write("<br><b>1 Pattern </b><br><br>")
+	for(let i=0;i<n;i++)
+	{
+		for(let j=0;j<=i;j++)
+		{
+			document.write(" * ");
+		}
+		document.write("<br>");
+	}
+
+
+	document.write("<br><b>2 Pattern </b> <br><br>")
+	for(let i=1;i<=n;i++)
+	{
+		for(let j=1;j<=n-i;j++)
+		{
+			document.write(" &nbsp;&nbsp; ");
+		}
+		for(let k=1;k<=i;k++)
+		{
+			document.write(" * ");
+		}
+		document.write("<br>");
+	}
+
+	document.write("<br><b>3 Pattern </b> <br><br>");
+	for(let i=1; i<=n; i++)
+	{
+		for(let j=1; j<=n-i; j++)
+		{
+			document.write(" &nbsp;&nbsp; ");
+		}
+		for(k=1; k<=i; k++)
+		{
+			document.write(" &nbsp; * &nbsp;");
+		}
+		document.write("<br>");
+		
+	}
+
+	document.write("<br><b>4 Pattern </b> <br><br>")
+	for(let i=0;i<=n;i++)
+	{
+		for(let j=0;j<=n;j++)
+		{
+			if(i==j || i+j==n)
+			{
+				document.write(" * ");
+			}
+			else
+			{
+				document.write(" &nbsp;&nbsp; ");
+			}	
+		}
+		document.write("<br>");
+	}
+	</script>
+	
+</head>
+<body></body>
+</html>
