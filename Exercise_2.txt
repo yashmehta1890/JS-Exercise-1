@@ -1,0 +1,299 @@
+1)
+		const n = prompt("Enter number");
+
+		const static_array = [0,1,2,3,4,5,6,7,8,9];
+
+		function get() { 
+			
+			const first = static_array.slice(0, n);
+		  	const last = static_array.slice(Math.max(static_array.length-n, 0));
+
+			console.log("First " + n + " element : " + first);  
+			console.log("Last " + n + " element : " + last);  
+		}  
+		get();  
+
+2)
+		const number = prompt("Enter number");
+		const str = number.toString();
+		const res =[str[0]];
+		for(let i=1;i<number.length;i++)
+		{
+		 	if(str[i-1]%2===0 && str[i]%2===0)
+		 	{
+		 		res.push('-',str[i]);
+		 	}
+		 	else
+		 	{
+		 		res.push(str[i]);
+		 	}	
+		}
+		console.log(res.join(''));
+
+3)
+		const static_array = [0,1,1,2,3,4,5,5,5,6,7,7,8,9];
+		let count = {};
+		let compare =0;
+		let res = static_array[0];
+		 
+		for(let i=0;i<static_array.length;i++)
+		{
+	 		let element =static_array[i];
+	 		if(count[element]===undefined)
+	 		{
+	 			count[element]=1;
+	 		}
+	 		else
+	 		{
+	 			count[element]++;
+	 		}
+			if(count[element]>compare)
+			{
+				compare=count[element];
+				res=element;
+			}
+		}
+
+		console.log(res);
+
+4)
+		function shuffle(array) {
+	   		array.sort(() => Math.random() - 0.5);
+		}
+
+		let static_array = [0,1,2,3,4,5,6,7,8,9];
+		shuffle(static_array);
+		console.log(static_array);
+
+5)
+		let arr1 = [0,1,2,3];
+		let arr2 = [3,4,5];
+
+		let union = [...arr1,...arr2];
+		let intersection = arr1.filter(x => arr2.includes(x));
+		let first_difference = arr1.filter(x => !arr2.includes(x));
+		let second_difference = arr2.filter(x => !arr1.includes(x));
+		
+		console.log("Union : " + union);
+		console.log("intersection : " + intersection);
+		console.log("Difference arr1-arr2 : " + first_difference);
+		console.log("Difference arr2-arr1 : " + second_difference);
+
+6)
+		const static_array = [ "a" , "b" , "c" , "d" , "e" , "f" , "g" , "h" , "i" , "j" , "k" , "l" , "m" , "n" , "o" , "p" , "q" , "r" , "s" , "t" , "u" , "v" , "w" , "x" , "y" , "z" ]
+
+		const range = (start, end, n) => {
+		  if (static_array.indexOf(start) !== -1 && static_array.indexOf(end) !== -1) 
+		  {
+		    let newarray = [];
+		    for (let i = static_array.indexOf(start);i <= static_array.indexOf(end);i += n) 
+		    {
+		      newarray.push(static_array[i]);
+		    }
+		    return newarray;
+		  } 
+		  else 
+		  {
+		    return "not valid";
+		  }
+		};
+
+		console.log(range("a", "z", 2));
+
+7)
+		const monthName = function(date){
+		month = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
+		  return month[date.getMonth()];
+		};
+		console.log(monthName(new Date("01-07-2020")));
+
+8)
+		function diff(dt1, dt2) 
+	    {
+	 
+		  const time =(dt2.getTime() - dt1.getTime()) / 1000; 
+	      const year  = Math.abs(Math.round((time/(60 * 60 * 24))/365));
+	      const days = Math.abs(Math.round(time/(3600 * 24)));
+	      const month = Math.abs(Math.round(days/30));
+	      
+	 		return year + " Year " + month + " Month " + days + " Days" ;
+	     }
+	 
+	    dt1 = new Date("2018-07-01");
+	    dt2 = new Date("2020-05-03");
+	 
+	    const res = diff(dt1, dt2)
+	    console.log( "Output:- " + res ); 
+
+9)
+		function Unix_timestamp(t)
+		{
+			let dt = new Date(t*1000);
+			let hour = dt.getHours();
+			let min = "0" + dt.getMinutes();
+			let sec = "0" + dt.getSeconds();
+			return dt + ':' + hour + ':' + min + ':' + sec;
+		}
+
+		console.log(Unix_timestamp(1607518718));
+10)
+		function differences(dt1, dt2) 
+	    {
+	 
+	      const time =(dt2.getTime() - dt1.getTime()) / 1000;
+	      const minutes = time/60;
+	      const hours = minutes/60;
+	      const days = hours/24;
+	      const months = days/30;
+	      const year  = Math.abs(Math.trunc((time/(60 * 60 * 24))/365));
+	      
+	      return "Minutes :- " + minutes + "Hours :- " + hours + "Days :- " + days + "Month :- " + months + "Days :-" + days + " " + year + " Year " + months + " Month " + days + " Days";
+	       
+	     }
+	 
+	    dt1 = new Date("2018-07-01");
+	    dt2 = new Date("2020-05-03");
+	 
+	    const res = differences(dt1, dt2)
+	    console.log( "Output :- " + res ); 
+
+11)
+
+		insert = function insert(main_str, new_str, n) {
+				if(typeof(n) == "undefined") {
+				    n = 0;
+				}
+				if(typeof(new_str) == "undefined") {
+				    new_str = '';
+				}
+				return main_str.slice(0, n) + new_str + main_str.slice(n);
+			}
+			
+		console.log(insert('This is a sample string','Insert me',3));
+
+12)
+		string_chop =  function(str, size){
+
+		    if (str == null) 
+		    {
+		    	return [];
+		    }
+			return size > 0 ? str.match(new RegExp('.{1,' + size + '}', 'g')) : [str];
+		}
+		
+		console.log(string_chop('RapidOpsSolution',2));
+
+13)
+		function commas(x) {
+		    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		}
+
+		console.log((commas(1023165454197)));
+
+14)
+		const arr = [
+		  {
+		    id: 1,
+		    name: "abc",
+		    age: 10,
+		  },
+		  {
+		    id: 2,
+		    name: "def",
+		    age: 15,
+		  },
+		  {
+		    id: 3,
+		    name: "ghi",
+		    age: 20,
+		  },
+		    {
+		    id: 4,
+		    name: "jkl",
+		    age: 25,
+		  },
+		  {
+		    id: 5,
+		    name: "mno",
+		    age: 30,
+		  },
+		  {
+		    id: 6,
+		    name: "pqr",
+		    age: 35,
+		  },
+		  {
+		    id: 7,
+		    name: "stu",
+		    age: 40,
+		  },
+		  {
+		    id: 8,
+		    name: "vwx",
+		    age: 45,
+		  },
+		  {
+		    id: 9,
+		    name: "yza",
+		    age: 50,
+		  },
+		  {
+		    id: 10,
+		    name: "hkj",
+		    age: 55,
+		  },
+		];
+
+		console.log(arr.sort(function(a, b) {
+		    return a.age - b.age;
+		}));
+
+		function compare(a,b) {
+		   if (a.name > b.name )
+		     return -1;
+		   if (a.name  < b.name )
+		    return 1;
+		   return 0;
+		}
+		console.log(arr.sort(compare));
+
+15)
+		const static_array = [  {name:  "Jack" , age : 23}, {name:  "Sam" , age : 12},  {name:  "Max" , age : 20} ];
+
+
+		const delete_element = (key) => {
+			if (key > static_array.length)
+			{
+			 	return "position does not exist";
+			} 
+		  
+			if (key > -1) {
+			    static_array.splice(key, 1);
+			}
+			return static_array;
+		};
+
+		const insert_element = (item, key) => {  
+		  	if (key > -1) {
+		  		static_array.splice(key, 0, item);
+			}
+			return static_array;
+		};
+
+		const choice=prompt("1 Delete 2 Insert");
+
+		switch(+choice)
+		{
+			case 1:
+				const pos = +prompt("Enter your Position");
+				console.log(delete_element(pos));
+				break;
+			case 2:
+				const position = +prompt("Enter your Position");
+				const name = prompt("Enter your Name");
+				const num = +prompt("Enter your age");
+				console.log(insert_element({ name: "name", age: num }, position));
+				break;
+			default:
+				alert("Select valid option");
+		}
