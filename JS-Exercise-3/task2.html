@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Task2</title>
+	<script type="text/javascript">
+		console.time("abc");
+		//create array with objects
+		const arr = [{
+		  Name: 'Ravindra',
+		  Sports: ['Chess', 'Cricket'],
+		},
+		{
+		  Name: 'Ravi',
+		  Sports: ['Cricket', 'Football'],
+		},
+		{
+		  Name: 'Rishabh',
+		  Sports: ['TableTennis', 'Football'],
+		}];
+
+		let sports_arr = [];
+		let sports_obj = {};
+
+		for (let i = 0; i < arr.length; i++) {
+		    for (let j = 0; j < arr[i].Sports.length; j++) {
+
+		    	let sport_name = arr[i].Sports[j];
+			
+		        if (!(sport_name in sports_obj)) { //check sports is exist or not
+		        	sports_obj[sport_name] = [];
+		        	sports_obj[sport_name].push(arr[i].Name);
+		        }
+		        else {
+		        	sports_obj[sport_name].push(arr[i].Name);
+		      	}
+		  	}
+		}
+
+		for (const obj in sports_obj) {
+			let out_obj = {};
+		    out_obj[obj] = sports_obj[obj];
+		    sports_arr.push(out_obj);
+		}
+
+		console.log(sports_arr);
+		console.timeEnd("abc");
+	</script>
+</head>
+<body>
+
+</body>
+</html>

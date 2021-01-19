@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>3</title>
+	<script type="text/javascript">
+	//check email is valid or not
+	function checkEmail(email)
+	{
+			const format = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+			if(email.match(format))
+			{
+				alert("Valid email address");
+				return true;
+			}
+			else
+			{
+				alert("Invalid email address");
+				return false;
+			}
+	}
+	const email = prompt("Enter your Email address");
+	checkEmail(email);
+	</script>
+</head>
+<body>
+
+</body>
+</html>

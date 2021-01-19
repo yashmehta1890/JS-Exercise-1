@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>4</title>
+	<script type="text/javascript">
+	//create table using javascript and values user input
+	function tableCreate() {
+  		const row = +prompt("Enter your rows");
+  		const column = +prompt("Enter your column");
+
+  		document.write("<table border='1'>");
+  			for(let r=1;r<=row;r++)
+  			{
+  				document.write("<tr>"); //row
+  				for(let c=1;c<=column;c++)
+  				{
+  					document.write("<td>" + "Row-"+ r + "Column- "+ c + "</td>"); //column
+  				}
+  				document.write("</tr>");
+  			}
+  		document.write("</table>");
+	}
+	tableCreate();
+	</script>
+</head>
+<body>
+
+</body>
+</html>

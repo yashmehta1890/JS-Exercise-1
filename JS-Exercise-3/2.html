@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>2</title>
+	<script type="text/javascript">
+	//Remove tags from string
+	function removeTags(str) {
+    	if ((str===null) || (str==='')){
+      		return false;
+      	}
+      	else{
+      		str = str.toString();
+      	}
+      	return str.replace( /(<([^>]+)>)/ig, '');
+   	}
+   	document.write(removeTags('<p><strong><em>Javascript​ ​ Exercises</em></strong></p>'));
+	</script>
+</head>
+<body>
+
+</body>
+</html>
