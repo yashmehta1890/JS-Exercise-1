@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>StopWatch</title>
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+	<!-- Current Date and Time -->
+	<div class="content">
+		<input type="text" id="currentTime" disabled>
+		<input type="text" id="currentDate" disabled>
+	</div>
+
+	<!-- Stopwatch -->
+	<div class="stopWatch">Stopwatch  <span id="stopWatchTime">00:00:00:00 </span></div>
+	
+	<!-- Buttons -->
+	<div class="controls">
+		<button onclick="start()" style="background-color: green" id="start">Start</button>
+		<button onclick="stop()" style="background-color: red" id="stop">Stop</button>
+		<button onclick="resume()" style="background-color: yellow; color: black" id="resume">Resume</button>
+		<button onclick="reset()" style="background-color: orange" id="reset">Reset</button>
+	</div>
+
+	<!-- JS -->
+	<script type="text/javascript" src="stopwatch.js"></script>
+</body>
+
+</html>
