@@ -1,0 +1,41 @@
+body{
+	background: #708090;	
+	margin-top: 150px;
+	margin-left: 450px;
+	text-align: center;
+}
+
+#first{
+	width: 190px;
+	height: 190px;
+	background: #9074e7;
+	border-radius: 6px;
+
+}
+#second{
+	width: 190px;
+	height: 190px;
+	background: brown;
+	border-radius: 6px;
+	clear: left;
+}
+#third{
+	width: 190px;
+	height: 190px;
+	background: turquoise;
+	border-radius: 6px;
+}
+#fourth{
+	width: 190px;
+	height: 190px;
+	background: brown;
+	border-radius: 6px;
+}
+
+div {
+    float: left;
+    width: 100px;
+    height: 100px;
+    border: 1px solid blue;
+    margin: 8px;
+}

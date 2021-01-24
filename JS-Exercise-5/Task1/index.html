@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Task 1</title>
+	<!-- Bootstrap css -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<h1>Signup Form</h1>
+		</div>
+		<div class="row">
+			<form name="registrationform">
+				<div class="form-group">
+					<input type="text" class="form-control" name="uname" id="uname" placeholder="Enter username" required>
+				</div>
+				<div class="form-group">
+					<input type="password" class="form-control" name="pwd" id="pwd" placeholder="Enter password" required>
+				</div>
+				<div class="form-group">
+					<input type="password" class="form-control" name="cpwd" id="cpwd" placeholder="Confirm password" required>
+				</div>
+				<div class="form-group">
+					Admin <input type="radio" name="role" id="role" value="admin" >
+					User <input type="radio" name="role" id="role" value="user">
+				</div>
+				<div class="form-group">
+					<button type="button" class="btn btn-primary" onclick="register()">Register</button>	
+				</div>
+			</form>
+		</div>
+		<div class="row">
+			<a href="login.html">Back to login</a>
+		</div>
+	</div>
+	<!-- JS -->
+	<script type="text/javascript" src="task1.js"></script>
+</body>
+</html>

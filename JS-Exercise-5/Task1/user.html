@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User</title>
+    <!-- Bootstrap css -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <p class="navbar-brand" >Rapidops</p>
+            <div class="collapse navbar-collapse justify-content-end" >
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                       <p class="nav-link " id="userName"><script>document.write(localStorage.getItem('currentuser')+"(User)");</script></p>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="logout()">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+    	<div class="row">
+    		<h4>Assign Course</h4>
+    	</div>
+    	<div class="row">
+    		
+    	</div>
+    </div>
+    <script type="text/javascript">
+    	//logout 
+    	function logout() {
+    		alert("You are logged out");
+		    localStorage.removeItem("currentuser");
+		    window.location.replace("login.html");
+		}
+    </script>
+    <!-- JS -->
+    <script type="text/javascript" src="task1.js"></script>
+</body>
+</html>

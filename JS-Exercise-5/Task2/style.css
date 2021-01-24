@@ -1,0 +1,14 @@
+body{
+	background: #708090;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	
+}
+.highlight {
+        background-color: yellow;
+}
+li{
+    list-style: none;
+}
