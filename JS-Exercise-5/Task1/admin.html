@@ -39,25 +39,69 @@
     		<h4>Remove Course</h4>
     		<div class="col-lg-12 col-md-12 col-sm-12">
     			<script type="text/javascript">
-    				const {coursename}=JSON.parse(localStorage.getItem("coursename"));
-    				document.write(coursename);
+                    let coursecount = localStorage.getItem("coursecount");
+                    for(let i=1;i<=coursecount;i++){
+                        if(!JSON.parse(localStorage.getItem(i))){
+                            continue;
+                        }
+                        const { coursename } = JSON.parse(localStorage.getItem(i));
+                        document.write("<p> <b>Course Name : </b>"+coursename+" <button type='button'  id='coursebtn'"+i+"' class='btn btn-danger btn-sm' onclick='removeCourse("+i+")' value='"+i+"'>Remove</button> </p>");
+                    }
     			</script>
-    			<form name="removecourseform">
-                    <div class="form-group">
-                    	<button type="button" class="btn btn-danger" onclick="removeCourse()">Remove Course</button>
-                    </div>
-                </form>
     		</div>
     	</div>
     	<div class="row">
-    		<h4>Assign Course</h4>
+    		<h4>Assign Course (Click on User Name)</h4>
     		<div class="col-lg-12 col-md-12 col-sm-12">
-    			<script type="text/javascript">
-    				 const userdetails=localStorage.getItem('b');
-    				 const {username,roles}=JSON.parse(userdetails);
-			    	//localStorage.getItem('currentadmin', JSON.stringify(userdetails));
-    				document.write(username);
-    			</script>
+                    <script type="text/javascript">
+                        let students = JSON.parse(localStorage.getItem("students"));
+                        for(let i=0;i<students.length;i++){
+                            let name=students[i].toString();
+                            document.write(`<p onclick='assignCourse(${i},"${name}")' id='userid${i}'>${students[i]}<table id='data_table${i}'><tr><tr></table></p>`); 
+                        }
+
+                        function assignCourse(i,name) {
+                            let table=document.getElementById("data_table"+i);
+                            let table_len=table.rows.length;
+                            let coursecounts = localStorage.getItem("coursecount");
+                            for(var i=1;i<=coursecounts;i++){
+                                if(!JSON.parse(localStorage.getItem(i))){
+                                    continue;
+                                }
+                                const { coursename } = JSON.parse(localStorage.getItem(i));                    
+                                let row = table.insertRow(table_len).outerHTML=`<td><p> ${coursename}</p> </td><td><button type='button'  id='coursebtn${i}' class='btn btn-success btn-sm' onclick='addCourseStudent(${i},"${name}")' >Add</button></td>`;
+                            } 
+                        }    				 
+
+
+                        function addCourseStudent(i,name) {
+                            const { coursename } = JSON.parse(localStorage.getItem(i));
+                            let stud=localStorage.getItem("addCourseStudent"+name);
+                                if(!stud){
+                                     stud = { name, assigncourse:[coursename] };
+                                }
+                                else{
+                                    stud=JSON.parse(stud);
+                                    stud.assigncourse.push(coursename);
+                                }
+                            localStorage.setItem("addCourseStudent"+name, JSON.stringify(stud));
+                            alert('Course Assigned');
+                            document.getElementById("coursebtn"+i).innerHTML = "Remove";
+                            document.getElementById("coursebtn"+i).className = "btn btn-danger btn-sm";
+                            document.getElementById("coursebtn"+i).onclick = function() { cancelAssignCourse(i,name) }; 
+                        }
+                        
+                        function cancelAssignCourse(i,name){
+                            let courseinfo = localStorage.getItem("addCourseStudent"+name);
+                            courseinfo=JSON.parse(courseinfo);
+                            courseinfo.assigncourse.splice(courseinfo.assigncourse.indexOf(+i), 1);
+                            localStorage.setItem("addCourseStudent"+name, JSON.stringify(courseinfo));
+                            alert("Course Assign Removed");
+                            document.getElementById("coursebtn"+i).innerHTML = "Add";
+                            document.getElementById("coursebtn"+i).className = "btn btn-success btn-sm";
+                            document.getElementById("coursebtn"+i).onclick = function() { addCourseStudent(i,name) }; 
+                        }
+        			</script>
     		</div>
     	</div>
     </div>

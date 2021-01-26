@@ -11,6 +11,19 @@ function register(){
     }else if(password != cpassword){
     	alert("Password not match");
     }else{
+
+        if(roles=="user"){
+            let students=localStorage.getItem("students");
+            if(!students){
+                students=[username];
+            }
+            else{
+                students=JSON.parse(students);
+                students.push(username);
+            }
+            localStorage.setItem("students",JSON.stringify(students));
+        }
+
         const userdetails = { username, password, cpassword, roles };
 	    localStorage.setItem(username, JSON.stringify(userdetails));
         alert('Your account has been created');
@@ -52,17 +65,28 @@ function login(){
 }
 
 //Add Course
+let id=0;
 function addCourse() {
     let form = document.forms.addcourseform;
     let coursename = form.elements.cname.value;
     const course = { coursename };
-    localStorage.setItem("coursename",JSON.stringify(course));
+
+    let coursecount = localStorage.getItem("coursecount");
+    if(coursecount){
+        id=+coursecount+1;
+    }else{
+        id=1;
+    }
+    localStorage.setItem("coursecount",id);
+    localStorage.setItem(id,JSON.stringify(course));
     alert('Course Added');
     location.reload();
 }
+
 //Remove Course
-function removeCourse() {
-	localStorage.removeItem("cname");
+function removeCourse(i) {
+    document.getElementById("coursebtn");
+	localStorage.removeItem(i);
 	alert('Course removed');
 	location.reload();
-}
+}    
